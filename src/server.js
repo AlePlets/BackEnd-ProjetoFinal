@@ -10,6 +10,11 @@ app.use(express.json());
 app.use('/api/products', productsRouter);
 app.use('/api/carts', cartsRouter);
 
+
+
+
+
+
 app.listen(PORT, () => {
   console.log(`Servidor ouvindo na porta ${PORT}`);
 });
