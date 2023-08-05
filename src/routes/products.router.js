@@ -1,14 +1,15 @@
 const express = require('express');
-const fs = require('fs');
+import { productsModel } from './dao/models/products.model';
+//const fs = require('fs');
 
 const router = express.Router();
 
 // Rota raiz para listar todos os produtos
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   const { limit } = req.query;
-  let products = JSON.parse(fs.readFileSync('./data/products.json'));
+  //let products = JSON.parse(fs.readFileSync('./data/products.json'));
   if (limit) {
-    products = products.slice(0, parseInt(limit));
+    products = await productsModel.slice(0, parseInt(limit));
   }
   res.json(products);
 });
@@ -16,7 +17,7 @@ router.get('/', (req, res) => {
 // Rota para buscar um produto pelo id
 router.get('/:pid', (req, res) => {
   const { pid } = req.params;
-  const products = JSON.parse(fs.readFileSync('./data/products.json'));
+ // const products = JSON.parse(fs.readFileSync('./data/products.json'));
   const product = products.find((p) => p.id === pid);
   if (!product) {
     res.status(404).json({ error: 'Produto não encontrado' });
@@ -24,6 +25,8 @@ router.get('/:pid', (req, res) => {
     res.json(product);
   }
 });
+
+                /////////////PAUSA//////////////
 
 // Rota para adicionar um novo produto
 router.post('/', (req, res) => {
