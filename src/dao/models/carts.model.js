@@ -1,5 +1,3 @@
-// parti do dav1d
-
 import mongoose from 'mongoose';
 const cartscollection = 'carts';
 const cartsSchema = new mongoose.Schema({
