@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import express from 'express';
 import { cartsModel } from '../dao/models/carts.model.js';
+=======
+const express = require('express');
+import { cartsModel } from './dao/models/carts.model';
+>>>>>>> 33d198b9dedd44d0025f5bab6ce6becf178d81ee
 //const fs = require('fs');
 
 const router = express.Router();
@@ -34,37 +39,22 @@ router.get('/:cid', async (req, res) => {
 
 // Rota para adicionar um produto a um carrinho pelo id do carrinho
 router.post('/:cid/product/:pid', (req, res) => {
-  try {
-    const { cid, pid } = req.params;
-      //const carts = JSON.parse(fs.readFileSync('./data/carts.json'));
-      const cartIndex = carts.findIndex((c) => c.id === parseInt(cid));
-      if (cartIndex === -1) {
-        res.status(404).json({ error: 'Carrinho não encontrado' });
-      } else {
-        const cart = carts[cartIndex];
-        const existingProductIndex = cart.products.findIndex((p) => p.produto === parseInt(pid));
-        if (existingProductIndex === -1) {
-          cart.products.push({ produto: parseInt(pid), quantidade: 1 });
-        } else {
-          cart.products[existingProductIndex].quantidade++;
-        }
-        //fs.writeFileSync('./data/carts.json', JSON.stringify(carts));
-        res.json(cart.products);
-      }
-  }catch (error) {
-    console.log("Cannot get Products with mongoose: " + error);
+  const { cid, pid } = req.params;
+  // const carts = JSON.parse(fs.readFileSync('./data/carts.json'));
+  const cartIndex = carts.findIndex((c) => c.id === parseInt(cid));
+  if (cartIndex === -1) {
+    res.status(404).json({ error: 'Carrinho não encontrado' });
+  } else {
+    const cart = carts[cartIndex];
+    const existingProductIndex = cart.products.findIndex((p) => p.produto === parseInt(pid));
+    if (existingProductIndex === -1) {
+      cart.products.push({ produto: parseInt(pid), quantidade: 1 });
+    } else {
+      cart.products[existingProductIndex].quantidade++;
+    }
+    // fs.writeFileSync('./data/carts.json', JSON.stringify(carts));
+    res.json(cart.products);
   }
-  
 });
 
 module.exports = router;
-
-router.get('/', async (req, res) => {
-  try {
-    const alunos = await AlunoModel.find();
-    res.status(200).json(alunos)
-    //res.send({result: "sucess", payload: alunos});
-  } catch (error) {
-
-  }
-});
