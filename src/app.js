@@ -1,6 +1,6 @@
 import express, { urlencoded } from 'express';
-const productsRouter = require('./routes/products');
-const cartsRouter = require('./routes/carts');
+import productsRouter from './routes/products.router.js';
+import cartsRouter from './routes/carts.router.js';
 import mongoose from 'mongoose';
 
 const app = express();
@@ -21,7 +21,6 @@ mongoose.connect(mongoAtlasUrl)
     process.exit();
     }
 });
-
 
 app.listen(PORT, () => {
   console.log(`Servidor ouvindo na porta ${PORT}`);

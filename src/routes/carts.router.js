@@ -1,5 +1,5 @@
-const express = require('express');
-import { cartsModel } from './dao/models/carts.model.js';
+import express from 'express';
+import { cartsModel } from '../dao/models/carts.model.js';
 //const fs = require('fs');
 
 const router = express.Router();
