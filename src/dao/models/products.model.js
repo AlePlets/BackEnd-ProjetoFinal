@@ -3,32 +3,36 @@ import mongoosePaginate from 'mongoose-paginate-v2'
 
 const productsCollection = 'Products';
 const productsSchema = new mongoose.Schema({
-    nome:{
+    id:{
         type: String,
         required: true,
         index:true
     },
-    sobrenome: {
+    titulo: {
         type: String,
         required: true
     },
-    idade: {
+    descricao: {
+        type: String,
+        required: true
+    },
+    code:{
+        type: String,
+        required: true
+    },
+    preco: {
         type: Number,
         required: true
     },
-    cpf:{
+    status: {
         type: String,
-        unique: true,
-        required: true
-    },
-    curso: {
-        type: String,
-        required: true
-    },
-    nota: Number,
+        enum: ['ativo', 'inativo'],
+        default: 'ativo'
+    }
 });
 
-alunosSchema.plugin(mongoosePaginate);
+
+productsSchema.plugin(mongoosePaginate);
 const productsModel = mongoose.model(productsCollection, productsSchema);
 
 export default productsModel;

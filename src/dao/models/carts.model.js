@@ -1,28 +1,31 @@
 import mongoose from 'mongoose';
 const cartscollection = 'carts';
 const cartsSchema = new mongoose.Schema({
-    nome:{
+    id:{
+        type: String,
+        required: true,
+        index:true
+    },
+    titulo: {
         type: String,
         required: true
     },
-    sobrenome: {
+    descricao: {
         type: String,
         required: true
     },
-    idade: {
+    code:{
+        type: String,
+        required: true
+    },
+    preco: {
         type: Number,
         required: true
     },
-    cpf:{
+    status: {
         type: String,
-        unique: true,
-        required: true
-    },
-    curso: {
-        type: String,
-        required: true
-    },
-    nota: Number,
+        enum: ['ativo', 'inativo'],
+        default: 'ativo'
+    }
 });
-
 export const cartsModel = mongoose.model(cartscollection, cartsSchema);
