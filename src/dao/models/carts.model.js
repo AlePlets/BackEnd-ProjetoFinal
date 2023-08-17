@@ -1,10 +1,10 @@
 import mongoose from 'mongoose';
 const cartscollection = 'carts';
 const cartsSchema = new mongoose.Schema({
-    id:{
-        type: String,
+    id: {
+        type: Number,
         required: true,
-        index:true
+        index: true
     },
     titulo: {
         type: String,
@@ -14,7 +14,7 @@ const cartsSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    code:{
+    code: {
         type: String,
         required: true
     },
