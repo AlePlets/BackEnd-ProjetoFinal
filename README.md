@@ -3,8 +3,6 @@
 **Site**: https://www.coderhouse.com.br/
 
 > Colaboradores:
-> 	
-> 
 >  - https://github.com/AlePlets
 >  - https://github.com/Paulo-101
 >  - https://github.com/Souzafx
