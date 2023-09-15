@@ -16,7 +16,7 @@ export const newCart = async (req, res) => {
 }
 
 
-//Falta passar essas regras de negócio a baixo pela cartsDao
+//Falta passar essas regras de negócio a baixo pela cartsDao seguir modelo de newCart
 export const listProducts = async (req, res) => {
     try {
         const { cid } = req.params;
