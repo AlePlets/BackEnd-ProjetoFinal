@@ -10,7 +10,7 @@
 Repositório com código do Back End do projeto de um e-commerce para avaliação final do curso de Back-End.
 _____________________________________________________________________________
 ## Desafio 8
-**Controle e Middlewares - 08 03.06.2023**
+**Controle e Middlewares**
 Folder com arquivos da entrega parcial do desafio final - aula 08
 
 - Servidor com express que roda na porta 8080:

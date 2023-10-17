@@ -1,45 +1,36 @@
-import orderModel from "../models/products.model.js"
+import Product from '../models/Product.js';
 
-export default class Order {
+export const createProduct = async (productData) => {
+    const product = new Product(productData);
+    await product.save();
+    return product;
+};
 
-    getOrders = async () => {
-        try {
-            let orders = await orderModel.find({});
-            return orders;
-        } catch (error) {
-            console.log(error);
-            return null;
-        }
+export const getProductById = async (productId) => {
+    return await Product.findById(productId);
+};
+
+export const getAllProducts = async () => {
+    return await Product.find({});
+};
+
+export const updateProduct = async (productId, updatedData) => {
+    const product = await Product.findById(productId);
+    if (!product) {
+        throw new Error('Product not found');
     }
 
-    getOrderById = async (id) => {
-        try {
-            let order = await orderModel.findById(id);
-            return order;
-        } catch (error) {
-            console.log(error);
-            return null;
-        }
+    Object.assign(product, updatedData);
+    await product.save();
+    return product;
+};
+
+export const deleteProduct = async (productId) => {
+    const product = await Product.findById(productId);
+    if (!product) {
+        throw new Error('Product not found');
     }
 
-    saveOrder = async (order) => {
-        try {
-            let newOrder = await orderModel.create(order);
-            return newOrder;
-        } catch (error) {
-            console.log(error);
-            return null;
-        }
-    }
-
-    resolveOrder = async (id, Order) => {
-        try {
-            let result = await orderModel.updateOne({_id:id},{$set:Order});
-            return result;
-        } catch (error) {
-            console.log(error);
-            return null;
-        }
-    }
-
-}
+    await product.remove();
+    return product;
+};

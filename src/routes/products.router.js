@@ -1,11 +1,7 @@
-<<<<<<< HEAD
 import express from 'express'
 import fs from 'fs'
-=======
-const express = require('express');
 import { productsModel } from './dao/models/products.model';
 //const fs = require('fs');
->>>>>>> 33d198b9dedd44d0025f5bab6ce6becf178d81ee
 
 const router = express.Router();
 
@@ -30,8 +26,6 @@ router.get('/:pid', (req, res) => {
     res.json(product);
   }
 });
-
-                /////////////PAUSA//////////////
 
 // Rota para adicionar um novo produto
 router.post('/', (req, res) => {
