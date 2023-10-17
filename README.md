@@ -165,13 +165,13 @@ _____________________________________________________________________________
 
 _____________________________________________________________________________
 ## Desafio 39
-# Documentar API
-# Objetivo
+**Documentar API**
+**Objetivo**
 
 Realize a configuração necessária para ter seu projeto final documentado no Swagger.
 
-# Aspectos a incluir
+**Aspectos a incluir**
 
 O módulo do produto deve ser documentado.
 O módulo do carrinho deve ser documentado.
-Não documente as sessões
+Não documente as sessões.
