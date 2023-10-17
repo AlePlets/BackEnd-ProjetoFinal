@@ -9,8 +9,7 @@ const PORT = 8080;
 app.use(urlencoded({extended: true}));
 app.use(express.json());
 
-app.use('/api/products', productsRouter);
-app.use('/api/carts', cartsRouter);
+
 
 const mongoAtlasUrl = 'mongodb+srv://ale:123@cluster0.sxp8jkm.mongodb.net/?retryWrites=true&w=majority'
 
@@ -21,6 +20,9 @@ mongoose.connect(mongoAtlasUrl)
     process.exit();
     }
 });
+
+app.use('/api/products', productsRouter);
+app.use('/api/carts', cartsRouter);
 
 app.listen(PORT, () => {
   console.log(`Servidor ouvindo na porta ${PORT}`);
